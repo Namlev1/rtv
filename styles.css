@@ -81,3 +81,26 @@ p {
     font-size: 0.8rem;
     color: white
 }
+
+.menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.menu>a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu>a:hover {
+    text-decoration: underline;
+}
