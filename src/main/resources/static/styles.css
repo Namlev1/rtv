@@ -128,8 +128,12 @@ p {
 }
 
 .offer {
-    background-color: #fe3130;
-    height: 5fr;
+    height: auto;
     border: 2px solid black;
     padding: 20px;
+}
+
+.offer>img {
+    width: 100%;
+    height: auto;
 }
