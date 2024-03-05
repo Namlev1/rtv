@@ -24,7 +24,8 @@ public class DBInit implements CommandLineRunner {
                 new Item("Telewizor Samsung", 499, 4.3, "b"),
                 new Item("Laptop HP", 1499, 3.9, "c"),
                 new Item("Lodówka LG", 800, 5.0, "d"),
-                new Item("Iphone 15", 3800, 5.0, "e")
+                new Item("Toster", 800, 2.3, "e"),
+                new Item("Iphone 15", 3800, 5.0, "f")
         );
         repository.saveAll(items);
     }

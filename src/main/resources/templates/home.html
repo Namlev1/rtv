@@ -51,47 +51,32 @@
 </div>
 <div class="grid-wrapper">
     <div class="grid">
-        <div class="offer">
+        <div class="offer" th:each="item : ${items}">
             <img src="https://cdn-img.neonet.pl/eyJidWNrZXQiOiJodHRwczovL2Nkbi5uZW9uZXQucGwiLCJrZXkiOiJrYXJ0eS9wbGlraS96ZGplY2lhLzJCL3RlbGV3aXpvci10Y2wtNjVjODA1LW1pbmlsZWQtMTQ0aHotcWxlZC1nb29nbGUtdHYtMzg4MzQ1ZjFfMjAyNDAxMTdfV0Y5UTNSVzguanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4MH0sInJlc2l6ZSI6eyJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJyIjoyNTUsImciOjI1NSwiYiI6MjU1LCJhbHBoYSI6MX0sImhlaWdodCI6NTAwfX19/telewizor-tcl-65c805-miniled-144hz-qled-google-tv-388345f1_20240117_WF9Q3RW8.jpg"
-                 alt="Telewizor TCL"/>
+                 th:alt="${item.name}">
             <div class="offer-details">
-                <p class="price">1 290zł</p>
-                <div class="rating">
-              <span
-                      class="material-symbols-outlined"
-                      style="font-variation-settings: 'FILL' 1"
-              >
-                star
-              </span>
-                    <span
-                            class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 1"
-                    >
-                star
-              </span>
-                    <span
-                            class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 1"
-                    >
-                star
-              </span>
-                    <span
-                            class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 1"
-                    >
-                star
-              </span>
-                    <span class="material-symbols-outlined"> star_half </span>
+                <p class="item-name" th:text="${item.name}"></p>
+                <p class="price" th:text="${item.price}"></p>
+                <div class="ratings">
+                    <span th:each="i : ${#numbers.sequence(1, item.rating)}" class="material-symbols-outlined"
+                          style="font-variation-settings: 'FILL' 1">
+                        star
+                    </span>
+                    <span th:if="${item.rating % 1 > 0}" class="material-symbols-outlined"
+                          style="font-variation-settings: 'FILL' 1">
+                        star_half
+                    </span>
+                    <th:block
+                            th:with="roundedRating=${item.rating % 1 > 0 ? item.rating.intValue() + 1 : item.rating.intValue()}">
+                    <span th:if="${roundedRating < 5}" th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
+                          class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0">
+                        star
+                    </span>
+                    </th:block>
                 </div>
+
             </div>
         </div>
-        <div class="offer"></div>
-        <div class="offer"></div>
-        <div class="offer"></div>
-        <div class="offer"></div>
-        <div class="offer"></div>
-        <div class="offer"></div>
-        <div class="offer"></div>
     </div>
 </div>
 </body>
