@@ -9,5 +9,4 @@ public class RtvApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RtvApplication.class, args);
 	}
-
 }
