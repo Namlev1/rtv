@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Model model) {
-        model.addAttribute("items", repository.findAll());
+        model.addAttribute("items", repository.findTop8By());
         return "home";
     }
 
