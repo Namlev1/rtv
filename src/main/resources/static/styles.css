@@ -2,6 +2,8 @@
     font-size: 20px;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     --gray-background-color: #ded8d8;
+    --red-color: #fe3130;
+    --yellow-color: #fcba03;
 }
 
 body {
@@ -57,7 +59,7 @@ input[type="search"] {
     appearance: none;
     height: 80%;
     border: 0;
-    background-color: #fe3130;
+    background-color: var(--red-color);
     color: white;
     font-size: 1rem;
     border-radius: 0 4px 4px 0;
@@ -147,6 +149,33 @@ p {
     margin: 0.5rem 0;
 }
 
+p.price {
+    font-size: 0.85rem;
+    color: var(--red-color);
+    margin-bottom: 0;
+}
+
 .price::after {
     content: ' zł';
+}
+
+.item-name {
+    text-align: center;
+    font-weight: 600;
+}
+
+.star {
+    color: var(--yellow-color);
+}
+
+.add-button {
+    margin-top: 1rem;
+    padding: 0.3rem;
+    font-size: 0.7rem;
+    border: solid 1px black;
+    background-color: var(--red-color);
+    color: white;
+    float: right;
+    border-radius: 4px;
+    box-shadow: 3px 3px 3px 0px #BAB375;
 }
