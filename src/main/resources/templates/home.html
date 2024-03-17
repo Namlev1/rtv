@@ -15,10 +15,12 @@
 <div class="top-banner">
     <div class="left">
         <img src="img/logo.png" alt="Shop logo"/>
-        <div class="search-bar">
-            <input type="search"/>
-            <button type="submit">Szukaj</button>
-        </div>
+        <form action="http://localhost:8080/search" method="get">
+            <div class="search-bar">
+                <input type="search" name="name"/>
+                <button type="submit">Szukaj</button>
+            </div>
+        </form>
     </div>
     <span class="menu-wrapper">
         <p class="menu">
