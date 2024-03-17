@@ -50,7 +50,7 @@ public class Cart {
         double tempPrice = 0;
         for (CartItem cartItem : cartItems) {
             tempCounter += cartItem.getCounter();
-            tempPrice += cartItem.getPrice();
+            tempPrice += cartItem.getSum();
         }
 
         counter = tempCounter;

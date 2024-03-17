@@ -7,12 +7,12 @@ import rtv.pl.rtvshop.model.Item;
 public class CartItem {
     private final Item item;
     private int counter;
-    private double price;
+    private double sum;
 
     public CartItem(Item item) {
         this.item = item;
         counter = 1;
-        price = item.getPrice();
+        sum = item.getPrice();
     }
 
     public void increaseCounter() {
@@ -28,7 +28,7 @@ public class CartItem {
     }
 
     private void recalculate() {
-        price = counter * item.getPrice();
+        sum = counter * item.getPrice();
     }
 
     public boolean hasZeroItems() {
