@@ -12,15 +12,16 @@
     <script src="adjust_price.js" defer></script>
 </head>
 <body>
-<div class="top-banner">
-    <div class="left">
-        <img alt="Shop logo" src="img/logo.png"/>
-        <div class="search-bar">
-            <input type="search"/>
-            <button type="submit">Szukaj</button>
+<div class="top-banner-wrapper">
+    <div class="top-banner">
+        <div class="left">
+            <img alt="Shop logo" src="img/logo.png"/>
+            <div class="search-bar">
+                <input type="search"/>
+                <button type="submit">Szukaj</button>
+            </div>
         </div>
-    </div>
-    <span class="menu-wrapper">
+        <span class="menu-wrapper">
         <p class="menu">
           <span class="material-symbols-outlined"> person </span
           ><a href="">Zaloguj się</a>
@@ -34,6 +35,7 @@
           ><a href="">Kontakt</a>
         </p>
       </span>
+    </div>
 </div>
 <div class="nav-wrapper">
     <div class="nav">
@@ -51,14 +53,56 @@
     </div>
 </div>
 <div class="main-wrapper">
-    <div class="main">
-        <div class="cart-item" th:each="item : ${foundItems}">
-            <div class="details">
-                <div class="details-primary">
-                    <p th:text="${item.name}"></p>
-                </div>
+    <div class="main-search">
+        <div class="filters">
+            ee
         </div>
-    </div>
+        <div class="main grow">
+            <div class="cart-item" th:each="item : ${foundItems}">
+                <div class="details">
+                        <div class="details-primary">
+                            <img th:alt="${item.name}" th:src="${item.img}">
+                            <div class="details-info">
+                                <p th:text="${item.name}"></p>
+
+                                <div class="ratings">
+              <span
+                      class="material-symbols-outlined star"
+                      style="font-variation-settings: 'FILL' 1"
+                      th:each="i : ${#numbers.sequence(1, item.rating)}"
+              >
+                star
+              </span>
+                                    <span
+                                            class="material-symbols-outlined star"
+                                            style="font-variation-settings: 'FILL' 1"
+                                            th:if="${item.rating % 1 > 0}"
+                                    >
+                star_half
+              </span>
+                                    <th:block
+                                            th:with="roundedRating=${item.rating % 1 > 0 ? item.rating.intValue() + 1 : item.rating.intValue()}"
+                                    >
+                <span
+                        class="material-symbols-outlined star"
+                        style="font-variation-settings: 'FILL' 0"
+                        th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
+                        th:if="${roundedRating < 5}"
+                >
+                  star
+                </span>
+                                    </th:block>
+                                </div>
+                                <p class="price big-price" th:text="${item.price}"></p>
+                            </div>
+                        </div>
+                    </div>
+ <a th:href="@{'add/' + ${item.id}}" class="button-wrapper">
+                    <button class="add-button">
+                        Dodaj do koszyka
+                    </button>
+                </a>
+                </div>
 </div>
 </body>
 </html>

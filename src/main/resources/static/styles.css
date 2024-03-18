@@ -4,10 +4,11 @@
     --gray-background-color: #ded8d8;
     --red-color: #fe3130;
     --yellow-color: #fcba03;
+    background-color: var(--gray-background-color);
 }
 
 body {
-    padding: 5px 0 0;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
 .left {
@@ -184,6 +186,7 @@ p.price {
 
 .main-wrapper {
     background-color: var(--gray-background-color);
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,4 +303,65 @@ p.price {
     padding: 0.5rem;
     border: none;
     border-radius: 4px;
+}
+
+.filters {
+    margin-top: 4rem;
+    width: 25%;
+    border: 1px solid red;
+}
+
+.main-search {
+    margin-top: 3rem;
+    display: flex;
+    width: 60%;
+    gap: 20px;
+}
+
+.top-banner-wrapper {
+    padding: 5px 0 5px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grow {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+}
+
+p.big-price {
+    font-size: 1.1rem;
+    color: var(--red-color);
+    margin-bottom: 0;
+}
+
+.big-price::after {
+    content: ' zł';
+}
+
+.details-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.button-wrapper > button {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    width: 150px;
 }
