@@ -19,12 +19,15 @@ public class Item {
     private double rating;
     @Column(length = 500)
     private String img;
+    private String brand;
+    private boolean accessibility;
 
-    public Item(String name, double price, double rating, String img) {
+    public Item(String name, double price, double rating, String img, String brand, boolean accessibility) {
         this.name = name;
         this.price = price;
         this.rating = rating;
         this.img = img;
+        this.brand = brand;
+        this.accessibility = accessibility;
     }
-
 }

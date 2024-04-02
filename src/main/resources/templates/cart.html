@@ -1,84 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Koszyk</title>
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet" />
     <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
     />
-    <script src="adjust_price.js" defer></script>
-</head>
-<body>
-<div class="top-banner">
-    <div class="left">
-        <img alt="Shop logo" src="img/logo.png"/>
+    <script defer src="adjust_price.js"></script>
+  </head>
+  <body>
+    <div class="top-banner">
+      <div class="left">
+        <img alt="Shop logo" src="img/logo.png" />
         <div class="search-bar">
-            <input type="search"/>
-            <button type="submit">Szukaj</button>
+          <input type="search" />
+          <button type="submit">Szukaj</button>
         </div>
-    </div>
-    <span class="menu-wrapper">
-        <p class="menu">
-          <span class="material-symbols-outlined"> person </span
-          ><a href="">Zaloguj się</a>
-        </p>
+      </div>
+      <span class="menu-wrapper">
+        <p class="menu"><span class="material-symbols-outlined"> person </span><a href="">Zaloguj się</a></p>
         <p class="menu">
           <span class="material-symbols-outlined"> shopping_basket </span>
           <a th:href="@{'cart'}">Koszyk</a>
         </p>
-        <p class="menu">
-          <span class="material-symbols-outlined"> call </span
-          ><a href="">Kontakt</a>
-        </p>
+        <p class="menu"><span class="material-symbols-outlined"> call </span><a href="">Kontakt</a></p>
       </span>
-</div>
-<div class="nav-wrapper">
-    <div class="nav">
+    </div>
+    <div class="nav-wrapper">
+      <div class="nav">
         <p><a href="">Telewizory</a></p>
         <p><a href="">Duże AGD</a></p>
         <p>
-            <a href="">Małe AGD</a>
+          <a href="">Małe AGD</a>
         </p>
         <p>
-            <a href="">Smartfony</a>
+          <a href="">Smartfony</a>
         </p>
         <p>
-            <a href="">Komputery</a>
+          <a href="">Komputery</a>
         </p>
+      </div>
     </div>
-</div>
-<div class="main-wrapper">
-    <div class="main">
+    <div class="main-wrapper">
+      <div class="main">
         <p class="cart-header">Twój koszyk (<span th:text="${@cart.counter}"></span>)</p>
         <div class="cart-item" th:each="item : ${@cart.cartItems}">
-            <div class="details">
-                <div class="details-primary"><img th:alt="${item.item.name}" th:src="${item.item.img}">
-                    <p th:text="${item.item.name}"></p>
-                </div>
-                <div class="details-secondary">
-                    <div class="quantity-button">
-                        <button class="increase-button">+</button>
-                        <p th:text="${item.counter}"></p>
-                        <button class="decrease-button">-</button>
-                    </div>
-                    <div class="delete-cart-item">
-                    <span class="material-symbols-outlined">
-                    delete
-                    </span>
-                        <a href="#">Usuń</a>
-                    </div>
-                </div>
+          <div class="details">
+            <div class="details-primary">
+              <img th:alt="${item.item.name}" th:src="${item.item.img}" />
+              <p th:text="${item.item.name}"></p>
             </div>
-            <p class="price" th:text="${item.sum}"></p>
+            <div class="details-secondary">
+              <div class="quantity-button">
+                <button class="increase-button">+</button>
+                <p th:text="${item.counter}"></p>
+                <button class="decrease-button">-</button>
+              </div>
+              <div class="delete-cart-item">
+                <span class="material-symbols-outlined"> delete </span>
+                <a href="#">Usuń</a>
+              </div>
+            </div>
+          </div>
+          <p class="price" th:text="${item.sum}"></p>
         </div>
         <div class="cart-sum">
-            <p>Suma: <span th:text="${@cart.price}"></span> zł</p>
-            <button class="cart-continue-button">Kontynuj</button>
+          <p>Suma: <span th:text="${@cart.price}"></span> zł</p>
+          <button class="cart-continue-button">Kontynuj</button>
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

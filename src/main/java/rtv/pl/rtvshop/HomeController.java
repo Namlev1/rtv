@@ -23,13 +23,13 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Model model) {
-        model.addAttribute("items", repository.findTop8By());
+        model.addAttribute("items", repository.findTop8ByAccessibilityIsTrue());
         return "home";
     }
 
     @GetMapping("/add")
     public void add() {
-        repository.save(new Item("a", 3, 4, "aaa.com"));
+        repository.save(new Item("a", 3, 4, "aaa.com", "Samsung", true));
     }
 
     @GetMapping("/add/{item-id}")
@@ -40,7 +40,7 @@ public class HomeController {
             Item item = oItem.get();
             cart.addItem(item);
         }
-        model.addAttribute("items", repository.findTop8By());
+        model.addAttribute("items", repository.findTop8ByAccessibilityIsTrue());
         return "redirect:/home";
     }
 

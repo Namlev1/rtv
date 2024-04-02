@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Koszyk</title>
     <link href="styles.css" rel="stylesheet"/>
@@ -9,7 +9,9 @@
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
             rel="stylesheet"
     />
-    <script src="adjust_price.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css" rel="stylesheet"/>
+    <script defer src="adjust_price.js"></script>
+    <script defer src="min-max_slider.js"></script>
 </head>
 <body>
 <div class="top-banner-wrapper">
@@ -22,19 +24,13 @@
             </div>
         </div>
         <span class="menu-wrapper">
-        <p class="menu">
-          <span class="material-symbols-outlined"> person </span
-          ><a href="">Zaloguj się</a>
-        </p>
-        <p class="menu">
-          <span class="material-symbols-outlined"> shopping_basket </span>
-          <a th:href="@{'cart'}">Koszyk</a>
-        </p>
-        <p class="menu">
-          <span class="material-symbols-outlined"> call </span
-          ><a href="">Kontakt</a>
-        </p>
-      </span>
+          <p class="menu"><span class="material-symbols-outlined"> person </span><a href="">Zaloguj się</a></p>
+          <p class="menu">
+            <span class="material-symbols-outlined"> shopping_basket </span>
+            <a th:href="@{'cart'}">Koszyk</a>
+          </p>
+          <p class="menu"><span class="material-symbols-outlined"> call </span><a href="">Kontakt</a></p>
+        </span>
     </div>
 </div>
 <div class="nav-wrapper">
@@ -54,55 +50,93 @@
 </div>
 <div class="main-wrapper">
     <div class="main-search">
-        <div class="filters">
-            ee
-        </div>
-        <div class="main grow">
-            <div class="cart-item" th:each="item : ${foundItems}">
-                <div class="details">
+        <p>
+            Wyniki wyszukiwania dla "<span th:text="${searchText}"></span>" (<span th:text="${foundItems.size()}"></span
+        >):
+        </p>
+        <div class="main-search-w">
+            <form action="#" method="get" class="filters">
+                <h4 class="filters-title">Filtry:</h4>
+                <div class="filter">
+                    <label for="price-range">Cena:</label>
+                    <div id="price-range"></div>
+                    <p><span id="selectedMinPrice"></span>zł - <span
+                            id="selectedMaxPrice"></span>zł
+                    </p>
+                    <input id="minPrice" name="minPrice" th:value="${minPrice}" type="hidden"/>
+                    <input id="maxPrice" name="maxPrice" th:value="${maxPrice}" type="hidden"/>
+                    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+                </div>
+                <div class="filter">
+                    <p>Producent:</p>
+                    <div th:each="brand : ${brands}" class="filter_checkbox">
+                        <input type="checkbox" th:id="${brand}" th:value="${brand}" name="brands"/>
+                        <label th:for="${brand}" th:text="${brand}"></label>
+                    </div>
+                </div>
+                <div class="filter">
+                    <p>Dostępność:</p>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="accessible" value="true" name="accessibility"/>
+                        <label for="accessible">Tak</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="not_accessible" value="false" name="accessibility"/>
+                        <label for="not_accessible">Nie</label>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; width: 100%">
+                    <button class="big-btn" type="submit">Filtruj</button>
+                </div>
+                <input type="hidden" name="name" th:value="${searchText}">
+            </form>
+            <div class="main grow">
+                <div class="cart-item" th:each="item : ${foundItems}">
+                    <div class="details">
                         <div class="details-primary">
-                            <img th:alt="${item.name}" th:src="${item.img}">
+                            <img th:alt="${item.name}" th:src="${item.img}"/>
                             <div class="details-info">
                                 <p th:text="${item.name}"></p>
 
                                 <div class="ratings">
-              <span
-                      class="material-symbols-outlined star"
-                      style="font-variation-settings: 'FILL' 1"
-                      th:each="i : ${#numbers.sequence(1, item.rating)}"
-              >
-                star
-              </span>
+                      <span
+                              class="material-symbols-outlined star"
+                              style="font-variation-settings: 'FILL' 1"
+                              th:each="i : ${#numbers.sequence(1, item.rating)}"
+                      >
+                        star
+                      </span>
                                     <span
                                             class="material-symbols-outlined star"
                                             style="font-variation-settings: 'FILL' 1"
                                             th:if="${item.rating % 1 > 0}"
                                     >
-                star_half
-              </span>
+                        star_half
+                      </span>
                                     <th:block
                                             th:with="roundedRating=${item.rating % 1 > 0 ? item.rating.intValue() + 1 : item.rating.intValue()}"
                                     >
-                <span
-                        class="material-symbols-outlined star"
-                        style="font-variation-settings: 'FILL' 0"
-                        th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
-                        th:if="${roundedRating < 5}"
-                >
-                  star
-                </span>
+                        <span
+                                class="material-symbols-outlined star"
+                                style="font-variation-settings: 'FILL' 0"
+                                th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
+                                th:if="${roundedRating < 5}"
+                        >
+                          star
+                        </span>
                                     </th:block>
                                 </div>
                                 <p class="price big-price" th:text="${item.price}"></p>
                             </div>
                         </div>
                     </div>
- <a th:href="@{'add/' + ${item.id}}" class="button-wrapper">
-                    <button class="add-button">
-                        Dodaj do koszyka
-                    </button>
-                </a>
+                    <a class="button-wrapper" th:href="@{'add/' + ${item.id}}">
+                        <button class="add-button">Dodaj do koszyka</button>
+                    </a>
                 </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
