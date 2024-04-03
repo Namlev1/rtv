@@ -29,7 +29,7 @@ public class HomeController {
 
     @GetMapping("/add")
     public void add() {
-        repository.save(new Item("a", 3, 4, "aaa.com", "Samsung", true));
+        System.err.println("Adding must be implemented!");
     }
 
     @GetMapping("/add/{item-id}")

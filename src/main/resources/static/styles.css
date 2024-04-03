@@ -33,7 +33,7 @@ body {
     align-items: center;
 }
 
-.left > img {
+.left > a > img {
     height: 100%;
     width: auto;
 }

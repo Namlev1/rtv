@@ -1,92 +1,59 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="styles.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="styles.css" rel="stylesheet"/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet"
     />
     <script defer src="adjust_price.js"></script>
     <title>Sklep RTV</title>
-  </head>
-  <body>
-    <div class="top-banner">
-      <div class="left">
-        <img alt="Shop logo" src="img/logo.png" />
-        <form action="http://localhost:8080/search" method="get">
-          <div class="search-bar">
-            <input name="name" type="search" />
-            <button type="submit">Szukaj</button>
-          </div>
-        </form>
-      </div>
-      <span class="menu-wrapper">
-        <p class="menu"><span class="material-symbols-outlined"> person </span><a href="">Zaloguj się</a></p>
-        <p class="menu">
-          <span class="material-symbols-outlined"> shopping_basket </span>
-          <a th:href="@{'cart'}">Koszyk</a>
-        </p>
-        <p class="menu"><span class="material-symbols-outlined"> call </span><a href="">Kontakt</a></p>
-      </span>
-    </div>
-    <div class="nav-wrapper">
-      <div class="nav">
-        <p><a href="">Telewizory</a></p>
-        <p><a href="">Duże AGD</a></p>
-        <p>
-          <a href="">Małe AGD</a>
-        </p>
-        <p>
-          <a href="">Smartfony</a>
-        </p>
-        <p>
-          <a href="">Komputery</a>
-        </p>
-      </div>
-    </div>
-    <div class="grid-wrapper">
-      <div class="grid">
+</head>
+<body>
+<header th:replace="top-banner :: header"></header>
+<div class="grid-wrapper">
+    <div class="grid">
         <div class="offer" th:each="item : ${items}">
-          <img th:alt="${item.name}" th:src="${item.img}" />
-          <div class="offer-details">
-            <p class="item-name" th:text="${item.name}"></p>
-            <p class="price" th:text="${item.price}"></p>
-            <div class="ratings">
+            <img th:alt="${item.name}" th:src="${item.img}"/>
+            <div class="offer-details">
+                <p class="item-name" th:text="${item.name}"></p>
+                <p class="price" th:text="${item.price}"></p>
+                <div class="ratings">
               <span
-                class="material-symbols-outlined star"
-                style="font-variation-settings: 'FILL' 1"
-                th:each="i : ${#numbers.sequence(1, item.rating)}"
+                      class="material-symbols-outlined star"
+                      style="font-variation-settings: 'FILL' 1"
+                      th:each="i : ${#numbers.sequence(1, item.rating)}"
               >
                 star
               </span>
-              <span
-                class="material-symbols-outlined star"
-                style="font-variation-settings: 'FILL' 1"
-                th:if="${item.rating % 1 > 0}"
-              >
+                    <span
+                            class="material-symbols-outlined star"
+                            style="font-variation-settings: 'FILL' 1"
+                            th:if="${item.rating % 1 > 0}"
+                    >
                 star_half
               </span>
-              <th:block
-                th:with="roundedRating=${item.rating % 1 > 0 ? item.rating.intValue() + 1 : item.rating.intValue()}"
-              >
+                    <th:block
+                            th:with="roundedRating=${item.rating % 1 > 0 ? item.rating.intValue() + 1 : item.rating.intValue()}"
+                    >
                 <span
-                  class="material-symbols-outlined star"
-                  style="font-variation-settings: 'FILL' 0"
-                  th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
-                  th:if="${roundedRating < 5}"
+                        class="material-symbols-outlined star"
+                        style="font-variation-settings: 'FILL' 0"
+                        th:each="i : ${#numbers.sequence(1, 5 - roundedRating)}"
+                        th:if="${roundedRating < 5}"
                 >
                   star
                 </span>
-              </th:block>
-              <a th:href="@{'add/' + ${item.id}}">
-                <button class="add-button">Dodaj do koszyka</button>
-              </a>
+                    </th:block>
+                    <a th:href="@{'add/' + ${item.id}}">
+                        <button class="add-button">Dodaj do koszyka</button>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>
