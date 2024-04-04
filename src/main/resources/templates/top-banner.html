@@ -14,19 +14,29 @@
             </form>
           </div>
           <span class="menu-wrapper">
-            <p class="menu"><span class="material-symbols-outlined"> person </span><a href="">Zaloguj się</a></p>
+            <p class="menu">
+              <span class="material-symbols-outlined"> person </span>
+              <a href="">Zaloguj się</a>
+            </p>
             <p class="menu">
               <span class="material-symbols-outlined"> shopping_basket </span>
               <a th:href="@{'cart'}">Koszyk</a>
             </p>
-            <p class="menu"><span class="material-symbols-outlined"> call </span><a href="">Kontakt</a></p>
+            <p class="menu">
+              <span class="material-symbols-outlined"> call </span>
+              <a th:href="@{'/contact'}">Kontakt</a>
+            </p>
           </span>
         </div>
       </div>
       <div class="nav-wrapper">
         <div class="nav">
-          <p><a th:href="@{'search?category=TV'}">Telewizory</a></p>
-          <p><a th:href="@{'search?category=BIG_AGD'}">Duże AGD</a></p>
+          <p>
+            <a th:href="@{'search?category=TV'}">Telewizory</a>
+          </p>
+          <p>
+            <a th:href="@{'search?category=BIG_AGD'}">Duże AGD</a>
+          </p>
           <p>
             <a th:href="@{'search?category=SMALL_AGD'}">Małe AGD</a>
           </p>
