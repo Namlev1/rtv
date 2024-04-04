@@ -1,19 +1,19 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-<div th:fragment="header" style="width: 100%">
-    <div class="top-banner-wrapper">
+  <body>
+    <div style="width: 100%" th:fragment="header">
+      <div class="top-banner-wrapper">
         <div class="top-banner">
-            <div class="left">
-                <a th:href="@{'home'}" style="height: 100%">
-                    <img alt="Shop logo" src="img/logo.png"/>
-                </a>
-                <form th:action="@{'search'}" method="get" class="search-bar">
-                    <input name="name" type="search"/>
-                    <button type="submit">Szukaj</button>
-                </form>
-            </div>
-            <span class="menu-wrapper">
+          <div class="left">
+            <a style="height: 100%" th:href="@{'home'}">
+              <img alt="Shop logo" src="img/logo.png" />
+            </a>
+            <form class="search-bar" method="get" th:action="@{'search'}">
+              <input name="name" type="search" />
+              <button type="submit">Szukaj</button>
+            </form>
+          </div>
+          <span class="menu-wrapper">
             <p class="menu"><span class="material-symbols-outlined"> person </span><a href="">Zaloguj się</a></p>
             <p class="menu">
               <span class="material-symbols-outlined"> shopping_basket </span>
@@ -22,22 +22,22 @@
             <p class="menu"><span class="material-symbols-outlined"> call </span><a href="">Kontakt</a></p>
           </span>
         </div>
-    </div>
-    <div class="nav-wrapper">
+      </div>
+      <div class="nav-wrapper">
         <div class="nav">
-            <p><a th:href="@{'search?category=TV'}">Telewizory</a></p>
-            <p><a th:href="@{'search?category=BIG_AGD'}">Duże AGD</a></p>
-            <p>
-                <a th:href="@{'search?category=SMALL_AGD'}">Małe AGD</a>
-            </p>
-            <p>
-                <a th:href="@{'search?category=PHONE'}">Smartfony</a>
-            </p>
-            <p>
-                <a th:href="@{'search?category=COMPUTER'}">Komputery</a>
-            </p>
+          <p><a th:href="@{'search?category=TV'}">Telewizory</a></p>
+          <p><a th:href="@{'search?category=BIG_AGD'}">Duże AGD</a></p>
+          <p>
+            <a th:href="@{'search?category=SMALL_AGD'}">Małe AGD</a>
+          </p>
+          <p>
+            <a th:href="@{'search?category=PHONE'}">Smartfony</a>
+          </p>
+          <p>
+            <a th:href="@{'search?category=COMPUTER'}">Komputery</a>
+          </p>
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

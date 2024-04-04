@@ -1,14 +1,14 @@
-const priceRange = document.getElementById('price-range');
-const minPriceInput = document.getElementById('minPrice');
-const maxPriceInput = document.getElementById('maxPrice');
-const selectedMinPriceDisplay = document.getElementById('selectedMinPrice');
-const selectedMaxPriceDisplay = document.getElementById('selectedMaxPrice');
+const priceRange = document.getElementById("price-range");
+const minPriceInput = document.getElementById("minPrice");
+const maxPriceInput = document.getElementById("maxPrice");
+const selectedMinPriceDisplay = document.getElementById("selectedMinPrice");
+const selectedMaxPriceDisplay = document.getElementById("selectedMaxPrice");
 
 let minValue = parseFloat(minPriceInput.value);
 let maxValue = parseFloat(maxPriceInput.value);
 
 noUiSlider.create(priceRange, {
-  start: [minValue, maxValue],
+  start: [minSetPrice, maxSetPrice],
   connect: true,
   range: {
     min: minValue,
@@ -16,7 +16,7 @@ noUiSlider.create(priceRange, {
   },
 });
 
-priceRange.noUiSlider.on('update', function (values, handle) {
+priceRange.noUiSlider.on("update", function (values, handle) {
   const selectedMinPrice = parseFloat(values[0]).toFixed(2);
   const selectedMaxPrice = parseFloat(values[1]).toFixed(2);
   selectedMinPriceDisplay.textContent = selectedMinPrice;

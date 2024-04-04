@@ -1,6 +1,7 @@
 package rtv.pl.rtvshop.search;
 
 import lombok.Data;
+import rtv.pl.rtvshop.model.Category;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ public class SearchFormDto {
     private Double maxPrice;
     private List<String> brands;
     private List<Boolean> accessibility;
+    private Category category;
 }
