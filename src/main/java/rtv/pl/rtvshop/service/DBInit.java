@@ -1,22 +1,23 @@
 package rtv.pl.rtvshop.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import rtv.pl.rtvshop.model.Category;
 import rtv.pl.rtvshop.model.Item;
 import rtv.pl.rtvshop.repository.ItemRepository;
+import rtv.pl.rtvshop.repository.UserRepository;
+import rtv.pl.rtvshop.security.User;
 
 import java.util.List;
 
 @Configuration
+@RequiredArgsConstructor
 public class DBInit implements CommandLineRunner {
     private final ItemRepository repository;
-
-    @Autowired
-    public DBInit(ItemRepository repository) {
-        this.repository = repository;
-    }
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder encoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,5 +36,8 @@ public class DBInit implements CommandLineRunner {
                 new Item("Blender Russell", 250.00, 3.2, "https://cdn-img.neonet.pl/eyJidWNrZXQiOiJodHRwczovL2Nkbi5uZW9uZXQucGwiLCJrZXkiOiJrYXJ0eS9wbGlraS96ZGplY2lhLzI3L3J1c3NlbGwtaG9iYnMtcmV0cm8taGFuZC1ibGVuZGVyLWNyZWFtLTI1MjMyLTU2LTMzNTEyNmYxLnBuZyIsImVkaXRzIjp7IndlYnAiOnsicXVhbGl0eSI6ODB9LCJyZXNpemUiOnsiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9LCJoZWlnaHQiOjE1MDB9fX0=/russell-hobbs-retro-hand-blender-cream-25232-56-335126f1.png", "Russell", true, Category.SMALL_AGD)
         );
         repository.saveAll(items);
+
+        User user = new User("a", encoder.encode("a"), "a", "a", "a", "a");
+        userRepository.save(user);
     }
 }

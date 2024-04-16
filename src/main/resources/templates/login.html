@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Logowanie</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <script defer src="adjust_price.js"></script>
+  </head>
+  <body>
+    <header th:replace="top-banner :: header"></header>
+    <div class="main-wrapper">
+      <form method="post" th:action="@{/login}" class="login_form">
+        <p>Zaloguj się do swojego konta</p>
+        <fieldset>
+          <label for="username">Nazwa użytkownika:</label>
+          <br />
+          <input id="username" name="username" type="text" />
+        </fieldset>
+        <fieldset>
+          <label for="password">Hasło:</label>
+          <br />
+          <input id="password" name="password" type="password" />
+        </fieldset>
+        <button type="submit" class="login_btn">Zaloguj się</button>
+      </form>
+    </div>
+  </body>
+</html>
