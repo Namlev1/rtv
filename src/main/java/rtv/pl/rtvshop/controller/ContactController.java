@@ -1,4 +1,4 @@
-package rtv.pl.rtvshop;
+package rtv.pl.rtvshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

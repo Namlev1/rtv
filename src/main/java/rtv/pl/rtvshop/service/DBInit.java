@@ -37,7 +37,7 @@ public class DBInit implements CommandLineRunner {
         );
         repository.saveAll(items);
 
-        User user = new User("a", encoder.encode("a"), "a", "a", "a", "a");
+        User user = new User("a", encoder.encode("a"), "a", "a", "a", "a", "a", "a", "a", "a");
         userRepository.save(user);
     }
 }

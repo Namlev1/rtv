@@ -22,10 +22,15 @@ public class User implements UserDetails {
     private Integer id;
     private final String username;
     private final String password;
-    private final String fullname;
+
+    private final String firstName;
+    private final String lastName;
+    private final String email;
     private final String street;
-    private final String city;
     private final String zip;
+    private final String city;
+    private final String buildingNo;
+    private final String apartmentNo;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,6 +1,9 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
   <body>
+    <div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">This content is only shown to administrators.</div>
+    <div sec:authorize="hasRole('ROLE_USER')">This content is only shown to users.</div>
     <div style="width: 100%" th:fragment="header">
       <div class="top-banner-wrapper">
         <div class="top-banner">
@@ -16,7 +19,8 @@
           <span class="menu-wrapper">
             <p class="menu">
               <span class="material-symbols-outlined"> person </span>
-              <a href="">Zaloguj się</a>
+              <a sec:authorize="!isAuthenticated()" th:href="@{'/login'}">Zaloguj się</a>
+              <a sec:authorize="isAuthenticated()" th:href="@{'/account'}">Konto</a>
             </p>
             <p class="menu">
               <span class="material-symbols-outlined"> shopping_basket </span>

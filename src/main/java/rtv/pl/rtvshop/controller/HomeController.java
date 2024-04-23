@@ -1,10 +1,12 @@
-package rtv.pl.rtvshop;
+package rtv.pl.rtvshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import rtv.pl.rtvshop.Cart;
 import rtv.pl.rtvshop.model.Item;
 import rtv.pl.rtvshop.repository.ItemRepository;
 
@@ -21,9 +23,15 @@ public class HomeController {
         this.cart = cart;
     }
 
+    @GetMapping("/")
+    public String defaultPage() {
+        return "redirect:/home";
+    }
+
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(Model model, Authentication authentication) {
         model.addAttribute("items", repository.findTop8ByAccessibilityIsTrue());
+        model.addAttribute("authentication", authentication);
         return "home";
     }
 
