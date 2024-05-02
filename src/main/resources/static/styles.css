@@ -472,6 +472,17 @@ h4 {
   padding: 2px;
 }
 
+.login_form > fieldset > input:required + span{
+  position: relative;
+}
+
+.login_form > fieldset > input:required + span:before {
+  position: absolute;
+  left: 2px;
+  content:'*' ;
+  color: red;
+}
+
 .login_form > fieldset > label {
   font-size: 0.8rem;
   opacity: 0.7;
@@ -500,4 +511,12 @@ h4 {
 .account-info > p {
   margin: 0;
   font-size: 0.9rem;
+}
+
+.registration_form{
+  align-items: start;
+}
+
+.registration_form > fieldset > label{
+  font-size: 0.7rem;
 }
