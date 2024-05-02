@@ -22,7 +22,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity.authorizeHttpRequests(authorizeHttpRequest -> {
-            authorizeHttpRequest.requestMatchers(toH2Console()).permitAll();
             authorizeHttpRequest.requestMatchers("/cart/**").authenticated();
             authorizeHttpRequest.requestMatchers("/**").permitAll();
         });
@@ -33,7 +32,6 @@ public class SecurityConfig {
 
         httpSecurity.formLogin(login -> {
             login.loginPage("/login");
-//            login.successForwardUrl("/");
         });
 
         httpSecurity.logout(logout -> {
