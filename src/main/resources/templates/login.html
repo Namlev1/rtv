@@ -27,6 +27,12 @@
           <input id="password" name="password" type="password" />
         </fieldset>
         <button type="submit" class="login_btn">Zaloguj się</button>
+        <p
+          th:if="${param.error}"
+          style="color: red; margin: 0; font-size: 0.9rem"
+        >
+          Błędny login lub hasło
+        </p>
       </form>
     </div>
   </body>

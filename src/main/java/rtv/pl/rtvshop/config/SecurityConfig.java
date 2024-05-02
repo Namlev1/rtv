@@ -31,8 +31,14 @@ public class SecurityConfig {
             csrf.ignoringRequestMatchers(toH2Console()).disable();
         });
 
-        httpSecurity.formLogin(httpSecurityFormLoginConfigurer -> {
-            httpSecurityFormLoginConfigurer.loginPage("/login");
+        httpSecurity.formLogin(login -> {
+            login.loginPage("/login");
+//            login.successForwardUrl("/");
+        });
+
+        httpSecurity.logout(logout -> {
+            logout.logoutUrl("/logout");
+            logout.logoutSuccessUrl("/");
         });
 
         httpSecurity.headers(headers -> {

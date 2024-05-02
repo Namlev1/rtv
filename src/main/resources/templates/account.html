@@ -1,26 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Twoje konto</title>
-    <link href="styles.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-      rel="stylesheet"
-    />
-    <script defer src="adjust_price.js"></script>
-  </head>
-  <body>
-    <header th:replace="top-banner :: header"></header>
-    <div class="main-wrapper">
-      <p>Dane o koncie:</p>
-      <div class="account-info">
-        <p>Imię: <span th:text="${account.firstName}"></span></p>
-        <p>Nazwisko: <span th:text="${account.lastName}"></span></p>
-        <p>Email: <span th:text="${account.email}"></span></p>
-        <p>Adres: <span th:text="${account.street}"></span> <span th:text="${account.buildingNo}"></span> <span th:if="${account.apartmentNo != null}" th:text="'m. ' + ${account.apartmentNo}"></span></p>
-        <p>Miasto: <span th:text="${account.city}"></span></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Twoje konto</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet"
+  />
+  <script defer src="adjust_price.js"></script>
+</head>
+<body>
+<header th:replace="top-banner :: header"></header>
+<div class="main-wrapper">
+  <div class="login_form">
+    <p>Dane o koncie</p>
+    <div class="account-info">
+      <p>Imię: <span th:text="${account.firstName}"></span></p>
+      <p>Nazwisko: <span th:text="${account.lastName}"></span></p>
+      <p>Email: <span th:text="${account.email}"></span></p>
+      <p>Adres: <span th:text="${account.street}"></span> <span th:text="${account.buildingNo}"></span> <span
+        th:if="${account.apartmentNo != null}" th:text="'m. ' + ${account.apartmentNo}"></span></p>
+      <p>Miasto: <span th:text="${account.city}"></span></p>
+      <form th:action="@{/logout}" method="post" style="align-self: end">
+        <button class="add-button" style="align-self: end; margin: 0">wyloguj się</button>
+      </form>
     </div>
-  </body>
+  </div>
+</body>
 </html>
