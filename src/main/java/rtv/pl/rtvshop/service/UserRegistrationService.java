@@ -22,15 +22,15 @@ public class UserRegistrationService {
     }
 
     public User toUser(RegistrationForm form) {
-        return new User(form.username(),
-                encoder.encode(form.password()),
-                form.firstName(),
-                form.lastName(),
-                form.email(),
-                form.street(),
-                form.zip(),
-                form.city(),
-                form.buildingNo(),
-                form.apartmentNo());
+        return new User(form.getUsername(),
+                encoder.encode(form.getPassword()),
+                form.getFirstName(),
+                form.getLastName(),
+                form.getEmail(),
+                form.getStreet(),
+                form.getZip(),
+                form.getCity(),
+                form.getBuildingNo(),
+                form.getApartmentNo());
     }
 }

@@ -22,7 +22,7 @@
       <p>Nazwisko: <span th:text="${account.lastName}"></span></p>
       <p>Email: <span th:text="${account.email}"></span></p>
       <p>Adres: <span th:text="${account.street}"></span> <span th:text="${account.buildingNo}"></span> <span
-        th:if="${account.apartmentNo != null}" th:text="'m. ' + ${account.apartmentNo}"></span></p>
+        th:if="${account.apartmentNo != ''}" th:text="'m. ' + ${account.apartmentNo}"></span></p>
       <p>Miasto: <span th:text="${account.city}"></span></p>
       <form th:action="@{/logout}" method="post" style="align-self: end">
         <button class="add-button" style="align-self: end; margin: 0">wyloguj się</button>

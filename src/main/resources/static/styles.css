@@ -520,3 +520,8 @@ h4 {
 .registration_form > fieldset > label{
   font-size: 0.7rem;
 }
+
+.form_error{
+  font-size: 0.7rem;
+  color: red;
+}
