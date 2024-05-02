@@ -1,0 +1,19 @@
+spring:
+  devtools:
+    restart:
+      poll-interval: 2s
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/rtv
+#    username: rtv
+#    password: password
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rtv
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
