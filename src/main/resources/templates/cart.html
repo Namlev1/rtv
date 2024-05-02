@@ -14,8 +14,16 @@
   <body>
     <header th:replace="top-banner :: header"></header>
     <div class="main-wrapper">
-      <div class="main">
-        <p class="cart-header">Twój koszyk (<span th:text="${@cart.counter}"></span>)</p>
+      <div th:if="${@cart.counter} == 0">
+        <div class="login_form" style="width: 300px">
+          <p class="cart-header">Twój koszyk jest pusty</p>
+          <br>
+          <a href="/">Wróć do sklepu</a>
+      </div>
+      <div class="main" th:if="${@cart.counter} > 0">
+        <p class="cart-header">
+          Twój koszyk (<span th:text="${@cart.counter}"></span>)
+        </p>
         <div class="cart-item" th:each="item : ${@cart.cartItems}">
           <div class="details">
             <div class="details-primary">
