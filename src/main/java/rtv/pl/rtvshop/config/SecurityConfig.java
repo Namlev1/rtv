@@ -22,7 +22,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity.authorizeHttpRequests(authorizeHttpRequest -> {
-            authorizeHttpRequest.requestMatchers("/cart/**").authenticated();
+            authorizeHttpRequest.requestMatchers("/order/**").authenticated();
             authorizeHttpRequest.requestMatchers("/**").permitAll();
         });
 
