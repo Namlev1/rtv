@@ -12,7 +12,7 @@
     <title>Sklep RTV</title>
   </head>
   <body>
-    <header th:replace="top-banner :: header"></header>
+    <header th:replace="~{top-banner :: header}"></header>
     <div class="grid-wrapper">
       <div class="grid">
         <div class="offer" th:each="item : ${items}">

@@ -13,7 +13,7 @@
   <script defer src="increment-decrement.js"></script>
 </head>
 <body>
-<header th:replace="top-banner :: header"></header>
+<header th:replace="~{top-banner :: header}"></header>
 <div class="main-wrapper">
     <div th:if="${@cart.counter} == 0" class="login_form" style="width: 300px">
       <p class="cart-header">Twój koszyk jest pusty</p>
