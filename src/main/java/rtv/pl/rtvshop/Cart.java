@@ -31,14 +31,11 @@ public class Cart {
         recalculatePriceAndCounter();
     }
 
-    public void remove(Item item) {
+    public void remove(CartItem item) {
         // search for item
         for (CartItem cartItem : cartItems) {
-            if (cartItem.getItem().getId().equals(item.getId())) {
-                if (cartItem.hasZeroItems())
-                    cartItems.remove(cartItem);
-                else
-                    cartItem.decreaseCounter();
+            if (cartItem.equals(item)) {
+                cartItems.remove(cartItem);
                 recalculatePriceAndCounter();
                 return;
             }

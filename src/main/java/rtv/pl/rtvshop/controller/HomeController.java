@@ -66,6 +66,12 @@ public class HomeController {
         return "redirect:/cart";
     }
 
+    @PostMapping("/delete/{item_id}")
+    public String deleteItem(@PathVariable("item_id") Long itemId) {
+        cart.getCartItems().stream().filter(cartItem -> cartItem.getItem().getId().equals(itemId)).findFirst().ifPresent(cart::remove);
+        return "redirect:/cart";
+    }
+
     @GetMapping("/cart")
     public String cart() {
         return "cart";

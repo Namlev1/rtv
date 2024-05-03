@@ -36,9 +36,9 @@
               <p th:text="${item.counter}"></p>
               <button class="decrease-button" th:data-item-id="${item.item.id}">-</button>
             </div>
-            <div class="delete-cart-item">
-              <span class="material-symbols-outlined"> delete </span>
-              <a href="#">Usuń</a>
+            <div class="delete-cart-item" th:data-item-id="${item.item.id}">
+              <span class="material-symbols-outlined" th:data-item-id="${item.item.id}"> delete </span>
+              <span th:data-item-id="${item.item.id}">Usuń</span>
             </div>
           </div>
         </div>
