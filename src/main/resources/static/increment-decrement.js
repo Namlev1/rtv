@@ -5,7 +5,7 @@ const deleteButtons = document.querySelectorAll('.delete-cart-item')
 increaseButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
     const itemId = event.target.dataset.itemId;
-    fetch(`/increase/${itemId}`, { method: 'POST' }).then(r => {
+    fetch(`/cart/increase/${itemId}`, { method: 'POST' }).then(r => {
       location.reload();
     });
   });
@@ -14,7 +14,7 @@ increaseButtons.forEach((button) => {
 decreaseButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
     const itemId = event.target.dataset.itemId;
-    fetch(`/decrease/${itemId}`, { method: 'POST' })
+    fetch(`/cart/decrease/${itemId}`, { method: 'POST' })
       .then(response => {
         location.reload();
       });
@@ -24,7 +24,7 @@ decreaseButtons.forEach((button) => {
 deleteButtons.forEach((button) => {
   button.addEventListener('click', (event) => {
     const itemId = event.target.dataset.itemId;
-    fetch(`/delete/${itemId}`, { method: 'POST' })
+    fetch(`/cart/delete/${itemId}`, { method: 'POST' })
       .then(response => {
         location.reload();
       });
