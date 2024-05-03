@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import rtv.pl.rtvshop.Cart;
+import rtv.pl.rtvshop.CartItem;
 import rtv.pl.rtvshop.model.Item;
 import rtv.pl.rtvshop.repository.ItemRepository;
 
@@ -50,6 +52,18 @@ public class HomeController {
         }
         model.addAttribute("items", repository.findTop8ByAccessibilityIsTrue());
         return "redirect:/home";
+    }
+
+    @PostMapping("/increase/{item_id}")
+    public String increaseItem(@PathVariable("item_id") Long itemId) {
+        cart.getCartItems().stream().filter(cartItem -> cartItem.getItem().getId().equals(itemId)).findFirst().ifPresent(cart::increase);
+        return "redirect:/cart";
+    }
+
+    @PostMapping("/decrease/{item_id}")
+    public String decreaseItem(@PathVariable("item_id") Long itemId) {
+        cart.getCartItems().stream().filter(cartItem -> cartItem.getItem().getId().equals(itemId)).findFirst().ifPresent(cart::decrease);
+        return "redirect:/cart";
     }
 
     @GetMapping("/cart")

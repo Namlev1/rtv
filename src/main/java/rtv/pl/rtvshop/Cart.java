@@ -45,6 +45,28 @@ public class Cart {
         }
     }
 
+    public void increase(CartItem item) {
+        for (CartItem cartItem : cartItems) {
+            if (cartItem.equals(item)) {
+                cartItem.increaseCounter();
+                recalculatePriceAndCounter();
+                return;
+            }
+        }
+    }
+
+    public void decrease(CartItem item) {
+        for (CartItem cartItem : cartItems) {
+            if (cartItem.equals(item)) {
+                cartItem.decreaseCounter();
+                recalculatePriceAndCounter();
+                if (cartItem.getCounter() == 0)
+                    cartItems.remove(cartItem);
+                return;
+            }
+        }
+    }
+
     private void recalculatePriceAndCounter() {
         int tempCounter = 0;
         double tempPrice = 0;
