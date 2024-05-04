@@ -14,7 +14,7 @@ public class AddItemForm {
 
     @NotNull(message = "Price cannot be null")
     @DecimalMin(value = "0.01", message = "Cena musi wynosić min. 0.01zł")
-    @Pattern(regexp = "\\d+(\\.\\d{1,2})", message = "Cena musi być liczbą o max. 2 cyfrach po kropce.")
+    @Pattern(regexp = "\\d+(\\.\\d{1,2})?", message = "Cena musi być liczbą o max. 2 cyfrach po kropce.")
     private String price;
 
     @NotNull(message = "Image URL cannot be null")
@@ -28,4 +28,8 @@ public class AddItemForm {
 
     @NotNull(message = "Category cannot be null")
     private Category category;
+
+    public Item toItem(){
+        return new Item(name, Double.parseDouble(price), 0.0, img, brand, accessibility, category);
+    }
 }

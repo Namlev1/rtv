@@ -526,6 +526,20 @@ h4 {
   color: red;
 }
 
-.add_item_fieldset > input[type='text']{
+.add_item_fieldset{
+  width: 100%;
+}
+
+.add_item_fieldset > input[type='text'],
+.add_item_fieldset > input[type='password'],
+.add_item_fieldset > input[type='email'] {
   width: 80%;
+}
+
+.green_confirm{
+  width: 15%;
+  background-color: chartreuse;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid darkgrey;
 }

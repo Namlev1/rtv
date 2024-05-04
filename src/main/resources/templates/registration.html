@@ -21,7 +21,7 @@
         th:object="${registrationForm}"
       >
         <p style="align-self: center">Zarejestruj się</p>
-        <fieldset>
+        <fieldset class="add_item_fieldset">
           <legend>Konto</legend>
           <label for="username">Nazwa użytkownika:</label>
           <br />
@@ -51,7 +51,7 @@
             ><br /><span th:errors="*{password}"></span
           ></span>
         </fieldset>
-        <fieldset>
+        <fieldset class="add_item_fieldset">
           <legend>Dane kontaktowe</legend>
           <label for="firstName">Imię:</label>
           <br />
@@ -95,7 +95,7 @@
             ><br /><span th:errors="*{email}"></span
           ></span>
         </fieldset>
-        <fieldset>
+        <fieldset class="add_item_fieldset">
           <legend>Adres</legend>
           <label for="city">Miasto:</label>
           <br />

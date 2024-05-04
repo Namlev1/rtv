@@ -13,7 +13,7 @@
   </head>
   <body>
     <header th:replace="~{top-banner :: header}"></header>
-    <div class="main-wrapper">
+    <div class="main-wrapper" style="flex-direction: column">
       <form
         class="login_form registration_form"
         method="post"
@@ -110,6 +110,7 @@
         <p style="align-self: start; font-size: 0.8rem"><span style="color: red">*</span> - wymagane pole</p>
         <button class="login_btn" type="submit">Dodaj</button>
       </form>
+      <p th:if="${itemAdded}" class="green_confirm">Produkt został dodany</p>
     </div>
   </body>
 </html>
