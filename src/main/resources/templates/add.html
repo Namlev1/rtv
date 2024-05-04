@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dodawanie produktów</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <script defer src="adjust_price.js"></script>
+  </head>
+  <body>
+    <header th:replace="~{top-banner :: header}"></header>
+    <div class="main-wrapper">
+      <form
+        class="login_form registration_form"
+        method="post"
+        th:action="@{/add}"
+        th:object="${addItemForm}"
+      >
+        <p style="align-self: center">Dodaj nowy produkt</p>
+        <fieldset class="add_item_fieldset">
+          <label for="name">Nazwa:</label>
+          <br />
+          <input
+            id="name"
+            name="name"
+            placeholder="Nazwa"
+            required
+            type="text"
+          />
+          <span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('name')}"
+            ><br /><span th:errors="*{name}"></span
+          ></span>
+          <br />
+          <label for="price">Cena:</label>
+          <br />
+          <input
+            id="price"
+            name="price"
+            placeholder="39.99"
+            required
+            type="text"
+          />
+          <span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('price')}"
+            ><br /><span th:errors="*{price}"></span
+          ></span>
+          <br />
+          <label for="img">Link do zdjęcia:</label>
+          <br />
+          <input
+            id="img"
+            name="img"
+            placeholder="https://example.com/image.jpg"
+            required
+            type="text"
+          />
+          <span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('img')}"
+            ><br /><span th:errors="*{img}"></span
+          ></span>
+          <br />
+          <label for="brand">Producent:</label>
+          <br />
+          <input
+            id="brand"
+            name="brand"
+            placeholder="Samsung"
+            required
+            type="text"
+          />
+          <span></span>
+          <br />
+          <label for="accessibility">Dostępność: <span style="color: red; font-size: 1rem">*</span></label>
+          <br />
+          <input
+            id="accessibilityYes"
+            name="accessibility"
+            required
+            type="radio"
+            value="true"
+          />
+          <label for="accessibilityYes">Tak</label>
+          <br />
+          <input
+            id="accessibilityNo"
+            name="accessibility"
+            type="radio"
+            value="false"
+          />
+          <label for="accessibilityNo">Nie</label>
+          <span></span>
+          <br />
+          <label for="category">Kategoria: <span style="color: red; font-size: 1rem">*</span></label>
+          <br />
+          <select id="category" name="category" required>
+            <option value="">Wybierz...</option>
+            <option value="TV">Telewizor</option>
+            <option value="BIG_AGD">Duże AGD</option>
+            <option value="SMALL_AGD">Małe AGD</option>
+            <option value="PHONE">Smartphone</option>
+            <option value="COMPUTER">Komputer</option>
+          </select>
+          <span></span>
+        </fieldset>
+        <p style="align-self: start; font-size: 0.8rem"><span style="color: red">*</span> - wymagane pole</p>
+        <button class="login_btn" type="submit">Dodaj</button>
+      </form>
+    </div>
+  </body>
+</html>

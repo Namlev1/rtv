@@ -80,7 +80,7 @@ public class SearchController {
         return stream.toList();
     }
 
-    private String translateCategory(Category category) {
+    public static String translateCategory(Category category) {
         String searchCategoryTranslated = null;
         if (category != null) {
             if (category.equals(Category.TV))

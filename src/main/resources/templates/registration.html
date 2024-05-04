@@ -33,7 +33,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('username')}" ><br><span th:errors="*{username}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('username')}"
+            ><br /><span th:errors="*{username}"></span
+          ></span>
           <br />
           <label for="password">Hasło</label>
           <br />
@@ -45,7 +47,9 @@
             type="password"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('password')}" ><br><span th:errors="*{password}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('password')}"
+            ><br /><span th:errors="*{password}"></span
+          ></span>
         </fieldset>
         <fieldset>
           <legend>Dane kontaktowe</legend>
@@ -59,7 +63,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('firstName')}" ><br><span th:errors="*{firstName}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('firstName')}"
+            ><br /><span th:errors="*{firstName}"></span
+          ></span>
           <br />
           <label for="lastName">Nazwisko:</label>
           <br />
@@ -71,7 +77,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('lastName')}" ><br><span th:errors="*{lastName}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('lastName')}"
+            ><br /><span th:errors="*{lastName}"></span
+          ></span>
           <br />
           <label for="email">Email:</label>
           <br />
@@ -83,7 +91,9 @@
             type="email"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('email')}" ><br><span th:errors="*{email}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('email')}"
+            ><br /><span th:errors="*{email}"></span
+          ></span>
         </fieldset>
         <fieldset>
           <legend>Adres</legend>
@@ -97,7 +107,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('city')}" ><br><span th:errors="*{city}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('city')}"
+            ><br /><span th:errors="*{city}"></span
+          ></span>
           <br />
           <label for="street">Ulica:</label>
           <br />
@@ -109,7 +121,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('street')}" ><br><span th:errors="*{street}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('street')}"
+            ><br /><span th:errors="*{street}"></span
+          ></span>
           <br />
           <label for="buildingNo">Numer budynku:</label>
           <br />
@@ -121,7 +135,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('buildingNo')}" ><br><span th:errors="*{buildingNo}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('buildingNo')}"
+            ><br /><span th:errors="*{buildingNo}"></span
+          ></span>
           <br />
           <label for="apartmentNo">Numer mieszkania:</label>
           <br />
@@ -132,7 +148,9 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('apartmentNo')}" ><br><span th:errors="*{apartmentNo}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('apartmentNo')}"
+            ><br /><span th:errors="*{apartmentNo}"></span
+          ></span>
           <br />
           <label for="zip">Kod pocztowy:</label>
           <br />
@@ -144,9 +162,13 @@
             type="text"
           />
           <span></span>
-          <span class="form_error" th:if="${#fields.hasErrors('zip')}" ><br><span th:errors="*{zip}" ></span></span>
+          <span class="form_error" th:if="${#fields.hasErrors('zip')}"
+            ><br /><span th:errors="*{zip}"></span
+          ></span>
         </fieldset>
-        <p style="align-self: start; font-size: 0.8rem">* - wymagane pole</p>
+        <p style="align-self: start; font-size: 0.8rem">
+          <span style="color: red">*</span> - wymagane pole
+        </p>
         <button class="login_btn" type="submit">Zarejestruj się</button>
       </form>
     </div>

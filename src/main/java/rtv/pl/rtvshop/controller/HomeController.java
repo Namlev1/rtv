@@ -24,10 +24,4 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/add")
-    public void add() {
-        System.err.println("Adding must be implemented!");
-    }
-
-
 }
