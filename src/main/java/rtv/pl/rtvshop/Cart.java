@@ -1,5 +1,6 @@
 package rtv.pl.rtvshop;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -12,7 +13,12 @@ import java.util.List;
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Data
+@Entity
 public class Cart {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToMany
     private final List<CartItem> cartItems = new ArrayList<>();
     private int counter = 0;
     private double price = 0;
