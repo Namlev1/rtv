@@ -45,7 +45,7 @@
         <p class="price" th:text="${item.sum}"></p>
       </div>
       <div class="cart-sum">
-        <p>Suma: <span th:text="${@cart.price}"></span> zł</p>
+        <p>Suma: <span th:text="${@cart.price}" class="price"></span></p>
         <button class="cart-continue-button">Kontynuj</button>
       </div>
     </div>
