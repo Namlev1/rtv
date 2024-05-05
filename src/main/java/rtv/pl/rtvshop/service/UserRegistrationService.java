@@ -31,6 +31,7 @@ public class UserRegistrationService {
                 form.getZip(),
                 form.getCity(),
                 form.getBuildingNo(),
-                form.getApartmentNo());
+                form.getApartmentNo(),
+                "USER");
     }
 }
