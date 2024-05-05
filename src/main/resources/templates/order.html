@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Koszyk</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet"
+  />
+  <script defer src="adjust_price.js"></script>
+  <script defer src="increment-decrement.js"></script>
+</head>
+<body>
+<header th:replace="~{top-banner :: header}"></header>
+<div class="main-wrapper">
+  <div th:if="${@cart.counter} == 0" class="login_form" style="width: 300px">
+    <p class="cart-header">Twój koszyk jest pusty</p>
+    <br>
+    <a href="/">Wróć do sklepu</a>
+  </div>
+  <div class="main" th:if="${@cart.counter} > 0">
+    <p class="cart-header">
+      Twój koszyk (<span th:text="${@cart.counter}"></span>)
+    </p>
+    <div class="cart-item" th:each="item : ${@cart.cartItems}">
+      <div class="details">
+        <div class="details-primary">
+          <img th:alt="${item.item.name}" th:src="${item.item.img}" />
+          <p th:text="${item.item.name}"></p>
+        </div>
+        <div class="details-secondary">
+          <div class="quantity-button">
+            <button class="increase-button" th:data-item-id="${item.item.id}">+</button>
+            <p th:text="${item.counter}"></p>
+            <button class="decrease-button" th:data-item-id="${item.item.id}">-</button>
+          </div>
+          <div class="delete-cart-item" th:data-item-id="${item.item.id}">
+            <span class="material-symbols-outlined" th:data-item-id="${item.item.id}"> delete </span>
+            <span th:data-item-id="${item.item.id}">Usuń</span>
+          </div>
+        </div>
+      </div>
+      <p class="price" th:text="${item.sum}"></p>
+    </div>
+    <div class="cart-sum">
+      <p>Suma: <span th:text="${@cart.price}" class="price"></span></p>
+      <form th:action="/order" method="post">
+        <button class="cart-continue-button">Złóż zamówienie</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

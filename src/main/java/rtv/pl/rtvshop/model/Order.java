@@ -11,13 +11,14 @@ import rtv.pl.rtvshop.security.User;
 @Entity
 @Table(name = "order_")
 @RequiredArgsConstructor
+@NoArgsConstructor(force = true)
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    private Cart cart;
-    @OneToOne
-    private User user;
-    private OrderStatus status;
+    @OneToOne(cascade = CascadeType.ALL)
+    private final Cart cart;
+    @ManyToOne
+    private final User user;
+    private final OrderStatus status;
 }

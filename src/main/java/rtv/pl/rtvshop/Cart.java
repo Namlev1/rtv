@@ -18,7 +18,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private final List<CartItem> cartItems = new ArrayList<>();
     private int counter = 0;
     private double price = 0;
@@ -68,6 +68,13 @@ public class Cart {
                 return;
             }
         }
+    }
+
+    public void clear() {
+        id = null;
+        cartItems.clear();
+        counter = 0;
+        price = 0;
     }
 
     private void recalculatePriceAndCounter() {

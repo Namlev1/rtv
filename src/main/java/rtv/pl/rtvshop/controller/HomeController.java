@@ -1,5 +1,6 @@
 package rtv.pl.rtvshop.controller;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String home(Model model, Authentication authentication) {
+    public String home(Model model, Authentication authentication, HttpSession session) {
         model.addAttribute("items", repository.findTop8ByAccessibilityIsTrue());
         model.addAttribute("authentication", authentication);
         return "home";

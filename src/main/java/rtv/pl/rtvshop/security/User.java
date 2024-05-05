@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import rtv.pl.rtvshop.model.Order;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,6 +21,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
     private final String username;
     private final String password;
 
@@ -32,6 +34,8 @@ public class User implements UserDetails {
     private final String buildingNo;
     private final String apartmentNo;
     private final String role;
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

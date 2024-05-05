@@ -46,7 +46,9 @@
       </div>
       <div class="cart-sum">
         <p>Suma: <span th:text="${@cart.price}" class="price"></span></p>
-        <button class="cart-continue-button">Kontynuj</button>
+        <form th:action="order" method="post">
+        <button class="cart-continue-button">Złóż zamówienie</button>
+        </form>
       </div>
     </div>
   </div>
