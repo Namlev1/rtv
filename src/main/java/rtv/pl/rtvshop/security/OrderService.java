@@ -15,6 +15,7 @@ import rtv.pl.rtvshop.repository.OrderRepository;
 import rtv.pl.rtvshop.repository.UserRepository;
 
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -35,13 +36,8 @@ public class OrderService {
     public Order saveOrder(Principal principal, HttpSession session) {
         Cart cart = (Cart) session.getAttribute("scopedTarget.cart");
         User user = userRepository.findByUsername(principal.getName());
-        Order order = new Order(cart, user, OrderStatus.NEW);
+        Order order = new Order(cart, user, OrderStatus.NEW, LocalDate.now());
         order = orderRepository.save(order);
-//        log.info("Session: {}", session);
-//        log.info("Order created: {}", order);
-//        cart.clear();
-//        cart.clear();
-//        cart = new Cart();
         Cart newCart = new Cart();
         session.setAttribute("scopedTarget.cart", newCart);
         return order;

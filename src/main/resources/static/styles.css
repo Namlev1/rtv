@@ -472,14 +472,14 @@ h4 {
   padding: 2px;
 }
 
-.login_form > fieldset > input:required + span{
+.login_form > fieldset > input:required + span {
   position: relative;
 }
 
 .login_form > fieldset > input:required + span:before {
   position: absolute;
   left: 2px;
-  content:'*' ;
+  content: "*";
   color: red;
 }
 
@@ -513,33 +513,67 @@ h4 {
   font-size: 0.9rem;
 }
 
-.registration_form{
+.registration_form {
   align-items: start;
 }
 
-.registration_form > fieldset > label{
+.registration_form > fieldset > label {
   font-size: 0.7rem;
 }
 
-.form_error{
+.form_error {
   font-size: 0.7rem;
   color: red;
 }
 
-.add_item_fieldset{
+.add_item_fieldset {
   width: 100%;
 }
 
-.add_item_fieldset > input[type='text'],
-.add_item_fieldset > input[type='password'],
-.add_item_fieldset > input[type='email'] {
+.add_item_fieldset > input[type="text"],
+.add_item_fieldset > input[type="password"],
+.add_item_fieldset > input[type="email"] {
   width: 80%;
 }
 
-.green_confirm{
+.green_confirm {
   width: 15%;
   background-color: chartreuse;
   padding: 1rem;
   text-align: center;
   border: 1px solid darkgrey;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  background-color: white;
+  padding: 1rem 2rem;
+}
+
+.order > p {
+  margin: 0.5rem 0;
+}
+
+.product {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 40% 20% 15%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid darkgrey;
+}
+
+.product > .details-primary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+p.price_big{
+  font-size: 1.3rem;
 }

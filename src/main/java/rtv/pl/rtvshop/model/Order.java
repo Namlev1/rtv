@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import rtv.pl.rtvshop.Cart;
 import rtv.pl.rtvshop.security.User;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "order_")
@@ -21,4 +23,5 @@ public class Order {
     @ManyToOne
     private final User user;
     private final OrderStatus status;
+    private final LocalDate date;
 }
