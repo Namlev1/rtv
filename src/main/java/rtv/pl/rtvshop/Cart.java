@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Data
 @Entity
